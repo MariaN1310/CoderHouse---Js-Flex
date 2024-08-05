@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>App Lista de Compras y Lista de Tareas</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	</head>
+	<body class="container text-center">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="m-4">App Lista de Compras y Lista de Tareas</h1>
+			</div>
+
+			<hr class="hr col-12" />
+			
+			<div class="col-6">
+				<form id="tareaForm">
+					<h2 class="mb-4">Agregar una tarea</h2>
+					<div class="mb-3 m-auto col-10">
+						<input type="text" class="form-control" id="inputTarea" placeholder="Tarea">
+					</div>
+					<button type="submit" class="btn btn-primary" id="cargarTarea">Cargar</button>
+				</form>
+				<div id="listaTareas" class="mb-4 m-auto col-10 text-start">
+					<h2 class="text-center">Lista de Tareas</h2>
+					<ul class="list-group"></ul>
+				</div>
+			</div>
+			<div class="col-6">
+				<form id="comprasForm">
+					<h2 class="mb-4">Agregar un Producto</h2>
+					<div class="mb-3 m-auto row">
+						<div class="row form-group col-11 m-auto">
+							<div class="col-8">
+								<input type="text" class="form-control" id="inputCompras" placeholder="Producto">
+							</div>
+							<div class="col-4">
+								<input type="text" class="form-control" id="inputCantidad" placeholder="Cantidad">
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary" id="cargarCompra">Cargar</button>
+				</form>
+				<div id="listaCompras" class="mb-4 m-auto col-10 text-start">
+					<h2 class="text-center">Lista de Compras</h2>
+					<ul class="list-group"></ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script defer src="script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</html>
