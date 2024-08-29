@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>OrganizApp</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+		<style>
+			.clima-container {
+				padding: 20px;
+				background-color: #f0f8ff;
+				border-radius: 8px;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+				text-align: center;
+			}
+			.clima-container img {
+				width: 50px;
+				height: 50px;
+			}
+			.clima-container h3 {
+				margin: 0;
+				font-size: 1.5em;
+			}
+			.clima-container p {
+				margin: 5px 0;
+				font-size: 1.1em;
+			}
+
+			.tareas-container {
+				padding: 20px;
+				background-color: #f9f9f9;
+				border-radius: 8px;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+				border: 1px solid #ddd;
+			}
+
+			.tareas-container h3 {
+				margin: 0;
+				font-size: 1.5em;
+			}
+
+			.tareas-container ul {
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.tareas-container li {
+				padding: 10px;
+				border-bottom: 1px solid #ddd;
+			}
+
+			#tareasCompletadas .list-group-item,
+			#comprasCompletadas .list-group-item {
+				background-color: #d3d3d3;
+			}
+
+			#tareasCompletadas .list-group-item div,
+			#comprasCompletadas .list-group-item div {
+				text-decoration: line-through;
+				opacity: 0.6;
+			}
+
+			#listaTareas .list-group-item:hover,
+			#listaCompras .list-group-item:hover {
+				background-color: #83a2bb52;
+			}
+			
+			</style>
+	</head>
+	<body class="container text-center">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
+			<div class="container-fluid">
+				<a class="navbar-brand">OrganizApp</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contenidoNavbar" aria-controls="contenidoNavbar" aria-expanded="false">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="contenidoNavbar">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#" data-section="inicio"><i class="fa-solid fa-house"></i> Inicio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" data-section="listaTarea"><i class="fa-solid fa-list-check"></i> ToDo</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" data-section="listaCompra"><i class="fa-solid fa-bottle-water"></i> Lista Compras</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		  </nav>
+		<div class="row">
+			<div class="section" id="inicio">
+				<div class="form-group row">
+					<div id="clima" class="col-lg-5 col-md-12 mt-sm-4 mt-md-4 mt-lg-0 mt-4 m-auto clima-container"></div>
+					<div id="tareasDelDia" class="col-lg-5 col-md-12 mt-sm-4 mt-md-4 mt-lg-0 mt-4 m-auto tareas-container">
+						<h3>Tareas del Día <i class="fa-solid fa-calendar-day"></i></h3>
+						<ul></ul>
+					</div>
+				</div>
+				<div class="col-10 mt-3 m-auto">
+					<h3>Introducción a la App</h3>
+
+					<p>Esta app está pensada para ayudar a organizarte de una manera fácil y rápida.</p>
+					<p>Podés manejar tus tareas diarias, agregando qué hay que hacer y cuándo, y también armar tus listas de compras.</p><br>
+					<p>En el menú <b><i class="fa-solid fa-list-check"></i> ToDo</b>, vas a encontrar tus tareas: podés agregarlas, eliminarlas o marcarlas como hechas.</p>
+					<p>En el menú <b><i class="fa-solid fa-bottle-water"></i> Lista Compras</b>, podes poner los productos que necesitás y la cantidad.</p>
+					<p>También podés marcar lo que ya compraste o eliminar lo que ya no necesitás.</p><br>
+					<p>La idea fue hacer una app sencilla, útil y que tambien cumpla con los pedidos del trabajo práctico.</p>
+				</div>
+			</div>
+			<div class="col-12 section d-none" id="listaTarea">
+				<form id="tareaForm">
+					<h1 class="mb-4">Agregar una tarea</h1>
+					<div class="form-group row">
+						<div class="col-lg-8 col-sm-12">
+							<input type="text" class="form-control" id="inputTarea" placeholder="Tarea">
+						</div>
+						<div class="col-lg-4 col-sm-12">
+							<input type="date" class="form-control" id="fechaTarea">
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary mt-3 m-auto col-4" id="cargarTarea"><i class="fa-solid fa-arrow-up"></i> Cargar Tarea</button>
+				</form>
+				<div id="listaTareas" class="mb-4 mt-4 m-auto col-12 text-start">
+					<h2 class="text-center">Lista de Tareas</h2>
+					<ul class="list-group"></ul>
+				</div>
+				<div class="form-group col-12 mt-3">
+					<hr>
+				</div>
+				<div id="tareasCompletadas" class="mb-4 m-auto col-12 text-start">
+					<ul class="list-group"></ul>
+				</div>
+			</div>
+			<div class="col-12 section d-none" id="listaCompra">
+				<form id="comprasForm">
+					<h1 class="mb-4">Agregar un Producto</h1>
+					<div class="form-group row">
+						<div class="col-lg-8 col-sm-12">
+							<input type="text" class="form-control" id="inputCompra" placeholder="Producto">
+						</div>
+						<div class="col-lg-4 col-sm-12">
+							<input type="text" class="form-control" id="inputCantidad" placeholder="Cantidad">
+						</div>
+						<button type="submit" class="btn btn-primary mt-3 m-auto col-4" id="cargarCompra"><i class="fa-solid fa-arrow-up"></i> Cargar Producto</button>
+					</div>
+				</form>
+				<div id="listaCompras" class="mb-4 mt-4 m-auto col-12 text-start">
+					<h2 class="text-center">Lista de Compras</h2>
+					<ul class="list-group"></ul>
+				</div>
+				<div class="form-group col-12 mt-3">
+					<hr>
+				</div>
+				<div id="comprasCompletadas" class="mb-4 m-auto col-12 text-start">
+					<ul class="list-group"></ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script defer src="script.js"></script>
+</html>
