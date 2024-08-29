@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Variables
 
 		//Inicio
-	const apiKey = 'a1bf5a215eeb56188c2e62b9e525101e';
+	const apiKey = '';
 	const climaElement = document.getElementById('clima');
 	const tareasDelDiaUl = document.querySelector('#tareasDelDia ul');
 
